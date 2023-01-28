@@ -9,7 +9,11 @@ const [shoes] = useState(data)
         {shoes.map((obj, i) => {
             return (
               <div className="col-md-4" key={i}>
-                <img src={obj.image} alt="shoes" width="80%" />
+                <img
+                  src={obj.image}
+                  alt="shoes"
+                  width="80%"
+                />
                 <h4>{obj.title}</h4>
                 <p>{obj.content}</p>
                 <span>price:{obj.price}</span>

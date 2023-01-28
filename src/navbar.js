@@ -15,7 +15,15 @@ function CollapsibleExample() {
     >
       <Container>
         <Navbar.Brand href="#home">
-         <Link to="/"><img src="img/logo1.png" alt="logo" className="navLogo"></img></Link>
+          <Link to="/">
+            <img
+              src={
+                "https://YujunSun0.github.io/shoes-shop-homepage/img/logo1.png"
+              }
+              alt="logo"
+              className="navLogo"
+            ></img>
+          </Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
