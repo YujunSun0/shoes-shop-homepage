@@ -14,8 +14,12 @@ function App(props) {
         <div className="main-bg"></div>
         <div className="row">
           <Routes>
-            <Route path="/" element={<Contents />} />
-            <Route path="/deets" element={<Deets />} />
+            <Route path="/" element={<Contents />}>
+              <Route path='/:id' element={<Contents />} />
+            </Route>
+            <Route path="/deets" element={<Deets />}>
+              <Route path='/deets/:id' element={<Deets />} />
+            </Route>
           </Routes>
         </div>
       </div>
