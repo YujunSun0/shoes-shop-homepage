@@ -66,6 +66,19 @@
     background-position: center;
 }
 
+.event {
+    text-align: center;
+}
+
+.col-md-4 > a > h4{
+    color: black;
+    
+}
+
+.col-md-4 > a {
+    text-decoration: none;
+}
+
 
 @media (max-width: 768px) {
 .col-md-4 {
