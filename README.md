@@ -1,5 +1,5 @@
 # Getting Started with Create React App
-쇼핑몰 페이지 구현 시작!  [링크](https://yujunsun0.github.io/shoes-shop-homepage/)
+리액트 강의를 수강하며 만드는 쇼핑몰 페이지 구현 시작!  [링크](https://yujunsun0.github.io/shoes-shop-homepage/)
 
 
 ## 2023 01 28
