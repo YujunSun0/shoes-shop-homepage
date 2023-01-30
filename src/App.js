@@ -23,11 +23,14 @@ function App(props) {
           <Routes>
             <Route path="/" element={<Contents />} />
             <Route path="/deets" element={<Deets shoes={shoes} />}>
-              <Route path=':id' element={<Deets shoes={shoes} />}/>
+              <Route path=":id" element={<Deets shoes={shoes} />} />
             </Route>
-            <Route path='/event' element={<Event />}>
-              <Route path='one' element={<div>첫 주문시 양배추즙 서비스</div>} />
-              <Route path='two' element={<div>생일기념 쿠폰받기</div>} />
+            <Route path="/event" element={<Event />}>
+              <Route
+                path="one"
+                element={<div>첫 주문시 양배추즙 서비스</div>}
+              />
+              <Route path="two" element={<div>생일기념 쿠폰받기</div>} />
             </Route>
           </Routes>
         </div>

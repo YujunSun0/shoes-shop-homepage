@@ -79,6 +79,38 @@
     text-decoration: none;
 }
 
+.deets > button {
+    background-color: white;
+    padding: 10px;
+}
+
+.none {
+    display: none;
+}
+
+.input {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.input > input {
+    border: 1px solid pink;
+    width: 20%;
+    margin-top: 5px;
+    outline: none;
+    text-align: center;
+}
+
+.input > button {
+    margin: 5px;
+}
+
+.popup {
+  padding: 5px;
+    background-color: pink
+}
 
 @media (max-width: 768px) {
 .col-md-4 {
@@ -86,6 +118,10 @@
 }
 .cards {
     margin-top: 95px;
+}
+
+.input > input{
+    width: 50%;
 }
 
 }
