@@ -4,13 +4,20 @@ import Contents from './Contents';
 import { Routes, Route} from "react-router-dom";
 import Deets from './pages/Deets';
 import Event from './pages/Event';
-import { useState } from 'react';
+import {  useState } from 'react';
+
 
 
 function App(props) {
-  
-  const [shoes] = useState(props.data)
-  console.log(shoes);
+
+
+  const [shoes, setShoes] = useState(props.data)
+
+
+  const childData = (x) => {
+    console.log(x);
+    setShoes(x)
+  }
 
   return (
     <div className="App">
@@ -18,10 +25,12 @@ function App(props) {
         <Navbar />
       </div>
       <div className="cards">
-        <div className="main-bg"></div>
+        <Routes>
+          <Route path='/' element={<div className="main-bg"></div>} />
+        </Routes>
         <div className="row">
           <Routes>
-            <Route path="/" element={<Contents />} />
+            <Route path="/" element={<Contents shoes={shoes} childData={childData} />} />
             <Route path="/deets" element={<Deets shoes={shoes} />}>
               <Route path=":id" element={<Deets shoes={shoes} />} />
             </Route>
