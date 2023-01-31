@@ -95,7 +95,7 @@ body {
     padding: 10px;
 }
 
-.hide {
+.hide, .none {
     display: none;
 }
 
