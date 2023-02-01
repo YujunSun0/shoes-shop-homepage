@@ -4,27 +4,35 @@ import Contents from './Contents';
 import { Routes, Route} from "react-router-dom";
 import Deets from './pages/Deets';
 import Event from './pages/Event';
-import {  useState } from 'react';
+import {  useEffect, useState } from 'react';
 
 
 
 function App(props) {
-
-
   const [shoes, setShoes] = useState(props.data)
-
+  const [fade, setFade] = useState("")
 
   const childData = (x) => {
     console.log(x);
     setShoes(x)
   }
 
+  useEffect(() => {
+   let timer = setTimeout(() => {
+      setFade('end')
+    },100)
+    return () => {
+      clearTimeout(timer)
+      setFade("")
+    }
+  },[])
+
   return (
     <div className="App">
       <div className="nav">
         <Navbar />
       </div>
-      <div className="cards">
+      <div className={`cards start ${fade}`}>
         <Routes>
           <Route path='/' element={<div className="main-bg"></div>} />
         </Routes>
