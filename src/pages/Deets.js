@@ -1,18 +1,19 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import Nav from "react-bootstrap/Nav";
+import Nav from "react-bootstrap/Nav"
 
 
 function Deets(props) {
 
-    console.log(props.shoes);
- 
+  console.log(props);
+
   let [str, setStr] = useState("");
   let { id } = useParams();
   let [name, setName] = useState("");
   let [hide, setHide] = useState("none");
   let [tap, setTap] = useState(0);
   let [fade2, setFade2] = useState("")
+
 
 
   useEffect(() => {
@@ -25,28 +26,28 @@ function Deets(props) {
   }, [])
   
   useEffect(() => {
-    if (isNaN(+str)  && str !== "") {
+    if (isNaN(+str) && str !== "") {
       setHide("")
     } else {
-      setHide("none")
+      setHide("hide")
     }
   }, [str])
   
   useEffect(() => {
-     window.scrollTo({top:0, behavior: "smooth"})
+    window.scrollTo({ top: 0, behavior: "smooth" })
   })
 
   useEffect(() => {
     setFade2("end")
     
-  },[])
+  }, [])
 
   const changeStr = (event) => {
     setStr(event.target.value)
   }
 
-    return (
-      <div className={`deets start ${fade2}`}>
+    return(
+      <div className = {`deets start ${fade2}`} >
         <div className="input">
           <button className={name}>2초이내 구매시 할인</button>
           <div className={`popup ${hide}`}>숫자를 입력하시오</div>
@@ -77,36 +78,51 @@ function Deets(props) {
           </div>
         </div>
 
-        <Nav justify variant="tabs" defaultActiveKey="link-0">
-          <Nav.Item>
-            <Nav.Link eventKey="link-0" onClick={() => setTap(0)}>상품상세</Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link eventKey="link-1" onClick={() => setTap(1)}>상품후기</Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link eventKey="link-2" onClick={() => setTap(2)}>사이즈 찾기</Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link eventKey="link-3" onClick={() => setTap(3)}>상품 안내</Nav.Link>
-          </Nav.Item>
-        </Nav>
-      
-       <DetailPage tap={tap}/>
+        <DetailNav setTap={setTap} />
+        <DetailPage tap={tap} id={id} shoes={props.shoes} />
        
-      </div>
+      </div >
+        
     );
+
 }
 
 
-function DetailPage({tap}) {
+function DetailNav({setTap}) {
+  return (
+    <Nav justify variant="tabs" defaultActiveKey="link-0">
+      <Nav.Item>
+        <Nav.Link eventKey="link-0" onClick={() => setTap(0)}>
+          상품상세
+        </Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link eventKey="link-1" onClick={() => setTap(1)}>
+          상품후기
+        </Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link eventKey="link-2" onClick={() => setTap(2)}>
+          사이즈 찾기
+        </Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link eventKey="link-3" onClick={() => setTap(3)}>
+          상품 안내
+        </Nav.Link>
+      </Nav.Item>
+    </Nav>
+  );
+}
+
+function DetailPage({tap, id, shoes }) {
     
   return [
-    <div className="detailPage">상품상세 내용</div>,
+    <div className="detailPage">{shoes[id].title}</div>,
     <div className="detailPage">상품후기 내용</div>,
     <div className="detailPage">사이즈 찾기 내용</div>,
-    <div className="detailPage">상품 안내 내용</div>
-  ][tap]  
+    <div className="detailPage">상품 안내 내용</div>,
+  ][tap];  
   }
 
 export default Deets;

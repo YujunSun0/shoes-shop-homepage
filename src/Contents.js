@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-function Contents({shoes, childData}) {
+function Contents({shoes, childData, setIsLoading}) {
   const [contentsData, setContentsData] = useState(shoes)
   const [btnClick, setBtnClick] = useState(0)
   const [hide, setHide] = useState("")
@@ -12,6 +12,12 @@ function Contents({shoes, childData}) {
     return event.target.value
   }
   
+  const isLoad = () => {
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false)
+    },1000)
+  }
  
 
   return (
@@ -20,7 +26,7 @@ function Contents({shoes, childData}) {
         {contentsData.map((obj, i) => {
           return (
             <div className="col-md-4" key={i}>
-              <Link to={`/deets/${obj.id}`}>
+              <Link to={`/deets/${obj.id}`} onClick={isLoad}>
                 <img
                   src={
                     "https://codingapple1.github.io/shop/shoes" +

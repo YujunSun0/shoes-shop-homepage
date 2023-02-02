@@ -78,9 +78,18 @@ body {
     background-position: center;
 }
 
-.event {
+.events {
     text-align: center;
 }
+
+.event {
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20vh;
+}
+
 
 .col-md-4 > a > h4{
     color: black;
@@ -91,13 +100,14 @@ body {
     text-decoration: none;
 }
 
+.deets {
+    
+}
+
+
 .deets > button {
     background-color: white;
     padding: 10px;
-}
-
-.hide, .none {
-    display: none;
 }
 
 .input {
@@ -122,7 +132,6 @@ body {
     border: none;
     background-color: blanchedalmond;
     border-radius: 10px;
-    
 }
 
 .popup {
@@ -133,10 +142,10 @@ body {
 
 .addBtn {
     border: none;
-    background:gray;
     bottom: 0;
     position: fixed;
     width: 100%;
+    
 }
 
 .row {
@@ -151,6 +160,8 @@ body {
 
 .detailPage {
     text-align: center;
+    font-size: 36px;
+    margin-top: 15px;
 }
 
 .start {
@@ -161,6 +172,28 @@ body {
 .end {
     opacity: 1;
     transition: opacity 1s;
+}
+
+.eventContents {
+    display: flex;
+    justify-content: space-around;
+}
+
+.hide {
+    display: none;
+}
+
+.none {
+    opacity: 0;
+    cursor: default !important;
+}
+
+.loading {
+    width: 100vw;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
