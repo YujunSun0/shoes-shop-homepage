@@ -1,11 +1,14 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Nav from "react-bootstrap/Nav"
+import { addItem } from '../data/store';
+import { useDispatch, useSelector } from 'react-redux';
+import { changeCountPlus } from "../data/store";
 
+function Deets({shoes}) {
 
-function Deets(props) {
+  console.log(shoes);
 
-  console.log(props);
 
   let [str, setStr] = useState("");
   let { id } = useParams();
@@ -14,6 +17,13 @@ function Deets(props) {
   let [tap, setTap] = useState(0);
   let [fade2, setFade2] = useState("")
 
+
+  let state = useSelector((state) => {
+    return state;
+  });
+  console.log(state);
+
+  let dispatch = useDispatch();
 
 
   useEffect(() => {
@@ -46,8 +56,10 @@ function Deets(props) {
     setStr(event.target.value)
   }
 
-    return(
-      <div className = {`deets start ${fade2}`} >
+  
+
+    return (
+      <div className={`deets start ${fade2}`}>
         <div className="input">
           <button className={name}>2초이내 구매시 할인</button>
           <div className={`popup ${hide}`}>숫자를 입력하시오</div>
@@ -71,18 +83,36 @@ function Deets(props) {
             />
           </div>
           <div className="col-md-6">
-            <h4 className="pt-5">{props.shoes[id].title}</h4>
-            <p>{props.shoes[id].content}</p>
-            <p>price: {props.shoes[id].price}</p>
-            <button className="btn btn-danger">주문하기</button>
+            <h4 className="pt-5">{shoes[id].title}</h4>
+            <p>{shoes[id].content}</p>
+            <p>price: {shoes[id].price}</p>
+            <Link to="/cart">
+              <button
+                className="btn btn-danger"
+                onClick={() =>
+                  // state.cartData.some((obj) => obj.id !== id) //shoes = 배열  state= 객체
+                    // ? changeCountPlus(shoes[id].id)
+                    // :
+                     dispatch(
+                        // 조건문으로 id가 중복일 경우 ? count만 1 증가 : addItem 함수 실행
+                        addItem({
+                          id: shoes[id].id,
+                          name: shoes[id].title,
+                          count: 1,
+                        })
+                      )
+                }
+              >
+                장바구니
+              </button>
+            </Link>
+            <button className="btn btn-danger">구매하기</button>
           </div>
         </div>
 
         <DetailNav setTap={setTap} />
-        <DetailPage tap={tap} id={id} shoes={props.shoes} />
-       
-      </div >
-        
+        <DetailPage tap={tap} id={id} shoes={shoes} />
+      </div>
     );
 
 }

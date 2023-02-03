@@ -6,11 +6,16 @@ import Deets from './pages/Deets';
 import Event from './pages/Event';
 import {  useEffect, useState } from 'react';
 import Loading from './Loading';
+import Cart from './pages/Cart';
 
 function App(props) {
+
+  
+
   const [shoes, setShoes] = useState(props.data)
   const [fade, setFade] = useState("")
-  let [isLoading, setIsLoading] = useState(true);
+  let [isLoading, setIsLoading] = useState(false);
+  
 
   const childData = (x) => {
     console.log(x);
@@ -43,13 +48,13 @@ function App(props) {
               element={<Contents shoes={shoes} childData={childData} setIsLoading={setIsLoading} />}
             />
             <Route
-              path="/deets"
-              element={
-                isLoading === true ? <Loading /> : <Deets shoes={shoes} />
-              }
-            >
-              <Route path=":id" element={<Deets shoes={shoes} />} />
-            </Route>
+              path="/deets/:id"
+              element={ isLoading === true ? <Loading /> : <Deets shoes={shoes} /> }
+            /> 
+            
+
+            <Route path='/cart' element={<Cart />} className="hi" />
+            
             <Route path="/event" element={<Event />}>
               <Route
                 path="one"

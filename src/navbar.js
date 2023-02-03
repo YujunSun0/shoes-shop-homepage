@@ -1,3 +1,4 @@
+
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -6,6 +7,7 @@ import { Link } from 'react-router-dom';
 
 function CollapsibleExample() {
   return (
+
     <Navbar
       collapseOnSelect
       expand="lg"
@@ -28,7 +30,7 @@ function CollapsibleExample() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#Cart">Cart</Nav.Link>
+            <Nav.Link href="/shoes-shop-homepage/cart">Cart</Nav.Link>
             <Nav.Link href="#pricing">Pricing</Nav.Link>
             <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>

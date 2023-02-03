@@ -148,10 +148,6 @@ body {
     
 }
 
-.row {
-    margin-bottom: 25px;
-}
-
 .contents {
     display: flex;
     flex-wrap: wrap;
@@ -194,6 +190,26 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.cart {
+    border: 2px solid black;
+    border-left: 0px;
+    border-right: 0px;
+    padding-top: 15px;
+    margin-top: 10px;
+    width: 50vw;
+    height: 50vh;
+    margin: auto;
+}
+
+.cart > p {
+    font-size: 25px;
+    text-align: center;
+}
+
+.btn {
+    margin-right: 5px;
 }
 
 
